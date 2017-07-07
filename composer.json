@@ -1,6 +1,6 @@
 {
     "name": "rstgroup/zf-external-config-consul-provider",
-    "description": "Consul provider for rsrgroup/zf-external-config-module",
+    "description": "Consul provider for rstgroup/zf-external-config-module",
     "type": "library",
     "authors": [
         {
@@ -8,9 +8,33 @@
             "email": "artur.wolny@rst.com.pl"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "process-timeout": 5000,
+        "secure-http": false
+    },
+    "require": {
+        "rstgroup/zf-external-config-module": "dev-feature/mvp",
+        "rstgroup/php-consul-config-provider": "dev-feature/mvp"
+    },
     "autoload": {
         "psr-4": {
             "RstGroup\\ZfExternalConfigConsulProvider\\": "src/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "/home/arturwolny/projects/platformers/php/zf-external-config-module"
+        },
+        {
+            "type": "vcs",
+            "url": "/home/arturwolny/projects/platformers/php/consul-config-provider"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/artospaj/consul-php-sdk"
+        }
+    ]
 }
