@@ -5,6 +5,7 @@ namespace RstGroup\ZfExternalConfigConsulProvider;
 
 use Interop\Container\ContainerInterface;
 use RstGroup\PhpConsulConfigProvider\Consul\ConfigProvider;
+use RstGroup\ZfExternalConfigModule\Config\ExternalConfigListener;
 use SensioLabs\Consul\ServiceFactory;
 use SensioLabs\Consul\Services\KVInterface;
 
@@ -17,10 +18,10 @@ final class ConsulConfigProviderFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        $config = $container->get('config');
+        $config = $container->get(ExternalConfigListener::SERVICE_EXTERNALS_CONFIG);
 
         $serviceFactory = new ServiceFactory([
-            'base_url' => $config['rst_group']['external_config']['consul']['base_uri'],
+            'base_url' => $config['consul']['base_uri'],
         ]);
 
         $provider = new ConfigProvider(
@@ -29,7 +30,7 @@ final class ConsulConfigProviderFactory
 
         return new ConsulConfigProvider(
             $provider,
-            $config['rst_group']['external_config']['consul']['prefix']
+            $config['consul']['prefix']
         );
     }
 }
