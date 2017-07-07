@@ -20,7 +20,7 @@ final class ConsulConfigProviderFactory
         $config = $container->get('config');
 
         $serviceFactory = new ServiceFactory([
-            'base_url' => $config['rst_group']['external_config']['consul']['base_uri']
+            'base_url' => $config['rst_group']['external_config']['consul']['base_uri'],
         ]);
 
         $provider = new ConfigProvider(
