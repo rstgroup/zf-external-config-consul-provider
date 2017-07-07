@@ -21,7 +21,7 @@ final class ConsulConfigProviderFactory
         $config = $container->get(ExternalConfigListener::SERVICE_EXTERNALS_CONFIG);
 
         $serviceFactory = new ServiceFactory([
-            'base_url' => $config['consul']['base_uri'],
+            'base_uri' => $config['consul']['base_uri'],
         ]);
 
         $provider = new ConfigProvider(
