@@ -1,0 +1,16 @@
+{
+    "name": "rstgroup/zf-external-config-consul-provider",
+    "description": "Consul provider for rsrgroup/zf-external-config-module",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Artur Wolny",
+            "email": "artur.wolny@rst.com.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RstGroup\\ZfExternalConfigConsulProvider\\": "src/"
+        }
+    }
+}
