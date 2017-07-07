@@ -4,7 +4,7 @@
 namespace RstGroup\ZfExternalConfigConsulProvider;
 
 use RstGroup\PhpConsulConfigProvider\ConfigProviderInterface as ConsulConfigProviderInterface;
-use RstGroup\ZfExternalConfigModule\ConfigProviderInterface;
+use RstGroup\ZfExternalConfigModule\Config\ConfigProviderInterface;
 
 final class ConsulConfigProvider implements ConfigProviderInterface
 {
