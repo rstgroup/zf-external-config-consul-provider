@@ -4,7 +4,7 @@
     - eval $(ssh-agent -s)
     - echo -e "$SSH_PRIVATE_KEY_LT" > /tmp/.key_lt
     - echo -e "$SSH_PRIVATE_KEY_RST" > /tmp/.key_rst
-    - chmod 600 /tmp/.key_{lt|rst}
+    - chmod 600 /tmp/.key_lt /tmp/.key_rst
     - ssh-add /tmp/.key_lt /tmp/.key_rst
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
