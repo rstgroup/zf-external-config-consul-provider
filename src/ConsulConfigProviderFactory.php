@@ -3,11 +3,13 @@
 
 namespace RstGroup\ZfExternalConfigConsulProvider;
 
-use Interop\Container\ContainerInterface;
+
+use Psr\Container\ContainerInterface;
 use RstGroup\PhpConsulKVArrayGetter\Consul\ConsulArrayGetter;
 use RstGroup\ZfExternalConfigModule\Config\ExternalConfigListener;
 use SensioLabs\Consul\ServiceFactory;
 use SensioLabs\Consul\Services\KVInterface;
+
 
 /** @codeCoverageIgnore */
 final class ConsulConfigProviderFactory
