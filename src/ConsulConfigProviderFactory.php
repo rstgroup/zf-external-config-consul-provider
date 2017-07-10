@@ -4,7 +4,7 @@
 namespace RstGroup\ZfExternalConfigConsulProvider;
 
 use Interop\Container\ContainerInterface;
-use RstGroup\PhpConsulConfigProvider\Consul\ConfigProvider;
+use RstGroup\PhpConsulKVArrayGetter\Consul\ConsulArrayGetter;
 use RstGroup\ZfExternalConfigModule\Config\ExternalConfigListener;
 use SensioLabs\Consul\ServiceFactory;
 use SensioLabs\Consul\Services\KVInterface;
@@ -24,7 +24,7 @@ final class ConsulConfigProviderFactory
             'base_uri' => $config['consul']['base_uri'],
         ]);
 
-        $provider = new ConfigProvider(
+        $provider = new ConsulArrayGetter(
             $serviceFactory->get(KVInterface::class)
         );
 

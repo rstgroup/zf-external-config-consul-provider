@@ -3,17 +3,17 @@
 
 namespace RstGroup\ZfExternalConfigConsulProvider;
 
-use RstGroup\PhpConsulConfigProvider\ConfigProviderInterface as ConsulConfigProviderInterface;
+use RstGroup\PhpConsulKVArrayGetter\ConsulArrayGetterInterface;
 use RstGroup\ZfExternalConfigModule\Config\ConfigProviderInterface;
 
 final class ConsulConfigProvider implements ConfigProviderInterface
 {
-    /** @var ConsulConfigProviderInterface */
+    /** @var ConsulArrayGetterInterface */
     private $consulConfigProvider;
     /** @var string|null */
     private $appPrefix;
 
-    public function __construct(ConsulConfigProviderInterface $consulConfigProvider, $applicationPrefix = null)
+    public function __construct(ConsulArrayGetterInterface $consulConfigProvider, $applicationPrefix = null)
     {
         $this->consulConfigProvider = $consulConfigProvider;
         $this->appPrefix            = $applicationPrefix;
@@ -29,7 +29,7 @@ final class ConsulConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
-        return $this->consulConfigProvider->getConfig(
+        return $this->consulConfigProvider->getByPrefix(
             $this->appPrefix ?: ''
         );
     }

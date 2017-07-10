@@ -35,11 +35,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "/home/arturwolny/projects/platformers/php/zf-external-config-module"
+            "url": "git@gitlab.trans-dev.loc:devops/zf-external-config-module.git"
         },
         {
             "type": "vcs",
-            "url": "/home/arturwolny/projects/platformers/php/consul-config-provider"
+            "url": "git@gitlab.trans-dev.loc:devops/php-consul-kv-array-getter.git"
         },
         {
             "type": "vcs",

@@ -5,7 +5,7 @@ namespace RstGroup\ZfExternalConfigConsulProvider\Tests;
 
 
 use PHPUnit\Framework\TestCase;
-use RstGroup\PhpConsulConfigProvider\ConfigProviderInterface as ConsulConfigProviderInterface;
+use RstGroup\PhpConsulKVArrayGetter\ConsulArrayGetterInterface;
 use RstGroup\ZfExternalConfigConsulProvider\ConsulConfigProvider;
 
 
@@ -14,8 +14,8 @@ class ConsulConfigProviderTest extends TestCase
     public function testItReturnsConfigFetchedFromConsul()
     {
         // given: mocked consul config provider
-        $configProvider = $this->getMockBuilder(ConsulConfigProviderInterface::class)->getMock();
-        $configProvider->method('getConfig')->willReturnMap([
+        $configProvider = $this->getMockBuilder(ConsulArrayGetterInterface::class)->getMock();
+        $configProvider->method('getByPrefix')->willReturnMap([
             ['application', ['application' => ['x' => 'y']]]
         ]);
 
