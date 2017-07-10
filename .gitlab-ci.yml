@@ -1,4 +1,4 @@
-.test_scheme
+.test_scheme: &test_scheme
   stage: test
   before_script:
     - eval $(ssh-agent -s)
