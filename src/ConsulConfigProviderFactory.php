@@ -22,9 +22,10 @@ final class ConsulConfigProviderFactory
     {
         $config = $container->get(ExternalConfigListener::SERVICE_EXTERNALS_CONFIG);
 
-        $serviceFactory = new ServiceFactory([
-            'base_uri' => $config['consul']['base_uri'],
-        ]);
+        $httpClientConfig = isset($config['consul']['http_client']) ? $config['consul']['http_client'] : [];
+        $consulKeyPrefix = isset($config['consul']['prefix']) ? $config['consul']['prefix'] : '';
+
+        $serviceFactory = new ServiceFactory($httpClientConfig);
 
         $provider = new ConsulArrayGetter(
             $serviceFactory->get(KVInterface::class)
@@ -32,7 +33,7 @@ final class ConsulConfigProviderFactory
 
         return new ConsulConfigProvider(
             $provider,
-            $config['consul']['prefix']
+            $consulKeyPrefix
         );
     }
 }
